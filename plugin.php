@@ -19,5 +19,17 @@ require __DIR__ . '/vendor/autoload.php';
 define( 'HFS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+/**
+ * Add new ACF JSON load point
+ */
+add_filter('acf/settings/load_json', function($paths) {
+  if ( function_exists('icl_object_id') ) {
+    $paths[] = HFS_PLUGIN_DIR . 'app/resources/acf-json';
+  } else {
+    $paths[] = HFS_PLUGIN_DIR . 'app/resources/acf-json/en';
+  }
+  return $paths;
+});
+
 $acf_hfs_init = new Init();
 //$micro_fields = new Fields();

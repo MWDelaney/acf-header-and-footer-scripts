@@ -115,7 +115,7 @@ function appendAce( $el ) {
 			var editor = __WEBPACK_IMPORTED_MODULE_0_brace___default.a.edit(editDiv[0]);
 			editor.renderer.setShowGutter(true);
 			editor.getSession().setValue(textarea.val());
-			editor.getSession().setMode("ace/mode/javascript");
+			editor.getSession().setMode({path:"ace/mode/javascript", inline:true});
 			editor.setTheme("ace/theme/ambiance");
 			// editor.setTheme("ace/theme/idle_fingers");
 

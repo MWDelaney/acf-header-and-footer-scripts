@@ -1,0 +1,174 @@
+{
+    "key": "group_5a0b3b29ebc4c",
+    "title": "Header and Footer Scripts",
+    "fields": [
+        {
+            "key": "field_5a0b580a5bb29",
+            "label": "Header Scripts",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a0b3b5f7aa0b",
+            "label": "Scripts to insert in the site header",
+            "name": "header_scripts",
+            "type": "repeater",
+            "instructions": "Paste scripts to be added to the header of the site. Do NOT Include opening and closing &lt;script&gt; tags.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "acf-code",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Script",
+            "sub_fields": [
+                {
+                    "key": "field_5a0b5768f04d0",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "A friendly name to remember what this script is used for.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5a0b3b987aa0c",
+                    "label": "Script",
+                    "name": "script",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "acf-code",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5a0b58205bb2a",
+            "label": "Footer Scripts",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5a0b582f5bb2b",
+            "label": "Scripts to insert in the site footer",
+            "name": "footer_scripts",
+            "type": "repeater",
+            "instructions": "Paste scripts to be added to the footer of the site. Do NOT Include opening and closing &lt;script&gt; tags.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "acf-code",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Script",
+            "sub_fields": [
+                {
+                    "key": "field_5a0b582f5bb2c",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "A friendly name to remember what this script is used for.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5a0b582f5bb2d",
+                    "label": "Script",
+                    "name": "script",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "acf-code",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-header-footer-scripts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1510693018
+}
