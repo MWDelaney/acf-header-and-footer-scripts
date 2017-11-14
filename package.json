@@ -1,0 +1,20 @@
+{
+  "name": "acf-header-and-footer-scripts",
+  "version": "1.0",
+  "author": "Michael W. Delaney",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mwdelaney/acf-header-and-footer-scripts.git"
+  },
+  "scripts": {
+    "build": "webpack --progress --config ./app/webpack.config.js",
+    "build:production": "webpack --progress -p --config ./app/webpack.config.js"
+  },
+  "dependencies": {
+    "brace": "*"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}

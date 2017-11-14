@@ -1,0 +1,19 @@
+{
+  "name": "mwdelaney/acf-header-and-footer-scripts",
+  "description": "",
+  "keywords": ["wordpress", "plugin", "acf", "custom scripts"],
+  "homepage": "https://github.com/MWDelaney/acf-header-and-footer-scripts",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael W. Delaney"
+    }
+  ],
+  "type": "wordpress-muplugin",
+  "require": {
+    "php": ">=5.3.2"
+  },
+  "autoload": {
+    "psr-4": { "MWD\\HFS\\": "app/" }
+  }
+}
