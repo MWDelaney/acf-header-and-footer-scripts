@@ -5,6 +5,7 @@ namespace MWD\HFS;
 class Init {
   function __construct() {
 
+
     /**
      * Create ACF options page(s)
      */
@@ -33,9 +34,8 @@ class Init {
        */
       add_action( 'wp_enqueue_scripts', function() {
         if( have_rows('header_scripts', 'option') ) {
-          wp_enqueue_script('acf-header-scripts', '<script></script>', array(), '');
           while ( have_rows('header_scripts', 'option') ) : the_row();
-            wp_add_inline_script( 'acf-header-scripts', get_sub_field('script') );
+            the_sub_field('script');
           endwhile;
         }
       });
@@ -46,12 +46,23 @@ class Init {
        */
        add_action( 'wp_enqueue_scripts', function() {
          if( have_rows('footer_scripts', 'option') ) {
-           wp_enqueue_script('acf-footer-scripts', '<script></script>', array(), '', true);
            while ( have_rows('footer_scripts', 'option') ) : the_row();
-             wp_add_inline_script( 'acf-footer-scripts', get_sub_field('script') );
+            the_sub_field('script');
            endwhile;
          }
        }, 9999);
+
+
+       /**
+        * Enqueue body open scripts
+        */
+        add_action( 'body_open', function() {
+          if( have_rows('body_open_scripts', 'option') ) {
+            while ( have_rows('body_open_scripts', 'option') ) : the_row();
+              the_sub_field('script');
+            endwhile;
+          }
+        });
 
   }
 }

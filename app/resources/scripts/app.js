@@ -1,9 +1,9 @@
 // Script
 
 import ace from 'brace'
-import 'brace/mode/javascript'
+import 'brace/mode/html'
 import 'brace/theme/ambiance'
-import 'brace/worker/javascript'
+import 'brace/worker/html'
 
 function appendAce( $el ) {
 	jQuery( $el ).each(function () {
@@ -20,7 +20,7 @@ function appendAce( $el ) {
 			var editor = ace.edit(editDiv[0]);
 			editor.renderer.setShowGutter(true);
 			editor.getSession().setValue(textarea.val());
-			editor.getSession().setMode({path:"ace/mode/javascript", inline:true});
+			editor.getSession().setMode({path:"ace/mode/html"});
 			editor.setTheme("ace/theme/ambiance");
 			// editor.setTheme("ace/theme/idle_fingers");
 
