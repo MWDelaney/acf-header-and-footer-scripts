@@ -44,7 +44,7 @@ class Init {
       /**
        * Enqueue footer scripts
        */
-       add_action( 'wp_enqueue_scripts', function() {
+       add_action( 'wp_footer', function() {
          if( have_rows('footer_scripts', 'option') ) {
            while ( have_rows('footer_scripts', 'option') ) : the_row();
             the_sub_field('script');
