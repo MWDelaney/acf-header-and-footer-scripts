@@ -33,10 +33,12 @@ class Init {
        * Enqueue header scripts
        */
       add_action( 'wp_enqueue_scripts', function() {
-        if( have_rows('header_scripts', 'option') ) {
-          while ( have_rows('header_scripts', 'option') ) : the_row();
-            the_sub_field('script');
-          endwhile;
+        if(!FLBuilderModel::is_builder_active()) {
+          if( have_rows('header_scripts', 'option') ) {
+            while ( have_rows('header_scripts', 'option') ) : the_row();
+              the_sub_field('script');
+            endwhile;
+          }
         }
       });
 
@@ -44,23 +46,27 @@ class Init {
       /**
        * Enqueue footer scripts
        */
-       add_action( 'wp_footer', function() {
-         if( have_rows('footer_scripts', 'option') ) {
-           while ( have_rows('footer_scripts', 'option') ) : the_row();
-            the_sub_field('script');
-           endwhile;
-         }
-       }, 9999);
+      add_action( 'wp_footer', function() {
+        if(!FLBuilderModel::is_builder_active()) {         
+          if( have_rows('footer_scripts', 'option') ) {
+            while ( have_rows('footer_scripts', 'option') ) : the_row();
+              the_sub_field('script');
+            endwhile;
+          }
+        }
+      }, 9999);
 
 
        /**
         * Enqueue body open scripts
         */
         add_action( 'body_open', function() {
-          if( have_rows('body_open_scripts', 'option') ) {
-            while ( have_rows('body_open_scripts', 'option') ) : the_row();
-              the_sub_field('script');
-            endwhile;
+          if(!FLBuilderModel::is_builder_active()) {
+            if( have_rows('body_open_scripts', 'option') ) {
+              while ( have_rows('body_open_scripts', 'option') ) : the_row();
+                the_sub_field('script');
+              endwhile;
+            }
           }
         });
 
