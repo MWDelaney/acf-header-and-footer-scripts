@@ -19,11 +19,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_5a0b3b5f7aa0b",
-            "label": "Scripts to insert in the site header",
+            "key": "field_5a130074b16e0",
+            "label": "Insert Header Script",
             "name": "header_scripts",
-            "type": "repeater",
-            "instructions": "Paste scripts to be added to the header of the site.",
+            "type": "flexible_content",
+            "instructions": "Scripts to be added to the header of the site.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -31,51 +31,104 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add Script",
-            "sub_fields": [
-                {
-                    "key": "field_5a0b5768f04d0",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "A friendly name to remember what this script is used for.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+            "layouts": {
+                "5a13007ad773c": {
+                    "key": "5a13007ad773c",
+                    "name": "snippet",
+                    "label": "Snippet",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5a0b5768f04d0",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "A friendly name to remember what this script is used for.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5a0b3b987aa0c",
+                            "label": "Script",
+                            "name": "script",
+                            "type": "textarea",
+                            "instructions": "Do not include script tags.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-code",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 },
-                {
-                    "key": "field_5a0b3b987aa0c",
-                    "label": "Script",
-                    "name": "script",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "acf-code",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                "5a1300beb16e1": {
+                    "key": "5a1300beb16e1",
+                    "name": "linked",
+                    "label": "Linked Script",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5a1300beb16e2",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "A friendly name to remember what this script is used for.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5a1300beb16e3",
+                            "label": "Script",
+                            "name": "script",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
-            ]
+            },
+            "button_label": "Add Script",
+            "min": "",
+            "max": ""
         },
         {
             "key": "field_5a0b58205bb2a",
@@ -94,63 +147,116 @@
             "endpoint": 0
         },
         {
-            "key": "field_5a0b582f5bb2b",
-            "label": "Scripts to insert in the site footer",
+            "key": "field_5a130354e0df0",
+            "label": "Insert Footer Script",
             "name": "footer_scripts",
-            "type": "repeater",
-            "instructions": "Paste scripts to be added to the footer of the site.",
+            "type": "flexible_content",
+            "instructions": "Scripts to be added to the footer of the site.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "acf-code-js",
+                "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add Script",
-            "sub_fields": [
-                {
-                    "key": "field_5a0b582f5bb2c",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "A friendly name to remember what this script is used for.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+            "layouts": {
+                "5a13007ad773c": {
+                    "key": "5a13007ad773c",
+                    "name": "snippet",
+                    "label": "Snippet",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5a130354e0df1",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "A friendly name to remember what this script is used for.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5a130354e0df2",
+                            "label": "Script",
+                            "name": "script",
+                            "type": "textarea",
+                            "instructions": "Do not include script tags.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "acf-code",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 },
-                {
-                    "key": "field_5a0b582f5bb2d",
-                    "label": "Script",
-                    "name": "script",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "acf-code",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                "5a1300beb16e1": {
+                    "key": "5a1300beb16e1",
+                    "name": "linked",
+                    "label": "Linked Script",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5a130354e0df3",
+                            "label": "Name",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "A friendly name to remember what this script is used for.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5a130354e0df4",
+                            "label": "Script",
+                            "name": "script",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
-            ]
+            },
+            "button_label": "Add Script",
+            "min": "",
+            "max": ""
         },
         {
             "key": "field_5a0df74302a7c",
@@ -245,5 +351,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1510865949
+    "modified": 1511195503
 }
