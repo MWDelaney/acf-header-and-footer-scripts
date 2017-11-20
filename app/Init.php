@@ -34,9 +34,10 @@ class Init {
        */
       add_action( 'wp_enqueue_scripts', function() {
         if(!\FLBuilderModel::is_builder_active()) {
+          wp_enqueue_script('header-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/header-scripts.js', NULL, NULL, false);
           if( have_rows('header_scripts', 'option') ) {
             while ( have_rows('header_scripts', 'option') ) : the_row();
-              the_sub_field('script');
+              wp_add_inline_script('header-scripts', get_sub_field('script'));
             endwhile;
           }
         }
@@ -48,9 +49,10 @@ class Init {
        */
       add_action( 'wp_footer', function() {
         if(!\FLBuilderModel::is_builder_active()) {
+          wp_enqueue_script('footer-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/footer-scripts.js', NULL, NULL, false);
           if( have_rows('footer_scripts', 'option') ) {
             while ( have_rows('footer_scripts', 'option') ) : the_row();
-              the_sub_field('script');
+              wp_add_inline_script('footer-scripts', get_sub_field('script'));
             endwhile;
           }
         }
