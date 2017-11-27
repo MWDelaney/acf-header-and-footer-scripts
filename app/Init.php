@@ -33,6 +33,9 @@ class Init {
        * Enqueue header scripts
        */
       add_action( 'wp_enqueue_scripts', function() {
+        // Use this to stop ACF from trying to look for a language-specific version of fields.
+        add_filter('acf/settings/current_language', '__return_false');
+
         if(!\FLBuilderModel::is_builder_active()) {
           if( have_rows('header_scripts', 'option') ) {
             wp_enqueue_script('header-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/header-scripts.js', NULL, NULL, false);
@@ -46,6 +49,9 @@ class Init {
             endwhile;
           }
         }
+
+        // Use this to re-enable language-specific retrieval of ACF fields.
+        remove_filter('acf/settings/current_language', '__return_false');
       });
 
 
@@ -53,8 +59,11 @@ class Init {
        * Enqueue footer scripts
        */
       add_action( 'wp_footer', function() {
+        // Use this to stop ACF from trying to look for a language-specific version of fields.
+        add_filter('acf/settings/current_language', '__return_false');
+
         if(!\FLBuilderModel::is_builder_active()) {
-          if( have_rows('header_scripts', 'option') ) {
+          if( have_rows('footer_scripts', 'option') ) {
             wp_enqueue_script('footer-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/footer-scripts.js', NULL, NULL, true);
             while ( have_rows('footer_scripts', 'option') ) : the_row();
               if( get_row_layout() == 'snippet' ) {
@@ -66,13 +75,19 @@ class Init {
             endwhile;
           }
         }
-      }, 9999);
+
+        // Use this to re-enable language-specific retrieval of ACF fields.
+        remove_filter('acf/settings/current_language', '__return_false');
+      });
 
 
        /**
         * Enqueue body open scripts
         */
         add_action( 'body_open', function() {
+          // Use this to stop ACF from trying to look for a language-specific version of fields.
+          add_filter('acf/settings/current_language', '__return_false');
+
           if(!\FLBuilderModel::is_builder_active()) {
             if( have_rows('body_open_scripts', 'option') ) {
               while ( have_rows('body_open_scripts', 'option') ) : the_row();
@@ -80,6 +95,9 @@ class Init {
               endwhile;
             }
           }
+
+          // Use this to re-enable language-specific retrieval of ACF fields.
+          remove_filter('acf/settings/current_language', '__return_false');
         });
 
   }
