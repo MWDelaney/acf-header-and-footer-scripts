@@ -3,8 +3,10 @@ namespace MWD\HFS;
 
 // Set up plugin class
 class Init {
-  function __construct() {
 
+  const LANGUAGE_SETTING_ACF_FILTER = 'acf/settings/current_language';
+
+  function __construct() {
 
     /**
      * Create ACF options page(s)
@@ -32,9 +34,11 @@ class Init {
       /**
        * Enqueue header scripts
        */
+
       add_action( 'wp_enqueue_scripts', function() {
-        // Use this to stop ACF from trying to look for a language-specific version of fields.
-        add_filter('acf/settings/current_language', '__return_false');
+
+        // Disable WPML for ACF and get fields from the default language
+        self::disableAcfLanguageAppending();
 
         if(!\FLBuilderModel::is_builder_active()) {
           if( have_rows('header_scripts', 'option') ) {
@@ -50,8 +54,10 @@ class Init {
           }
         }
 
-        // Use this to re-enable language-specific retrieval of ACF fields.
-        remove_filter('acf/settings/current_language', '__return_false');
+        // Re-enable WPML for ACF
+        self::reEnableAcfLanguageAppending();
+
+
       });
 
 
@@ -59,8 +65,9 @@ class Init {
        * Enqueue footer scripts
        */
       add_action( 'wp_footer', function() {
-        // Use this to stop ACF from trying to look for a language-specific version of fields.
-        add_filter('acf/settings/current_language', '__return_false');
+
+        // Disable WPML for ACF and get fields from the default language
+        self::disableAcfLanguageAppending();
 
         if(!\FLBuilderModel::is_builder_active()) {
           if( have_rows('footer_scripts', 'option') ) {
@@ -76,8 +83,9 @@ class Init {
           }
         }
 
-        // Use this to re-enable language-specific retrieval of ACF fields.
-        remove_filter('acf/settings/current_language', '__return_false');
+        // Re-enable WPML for ACF
+        self::reEnableAcfLanguageAppending();
+
       });
 
 
@@ -85,8 +93,9 @@ class Init {
         * Enqueue body open scripts
         */
         add_action( 'body_open', function() {
-          // Use this to stop ACF from trying to look for a language-specific version of fields.
-          add_filter('acf/settings/current_language', '__return_false');
+
+          // Disable WPML for ACF and get fields from the default language
+          self::disableAcfLanguageAppending();
 
           if(!\FLBuilderModel::is_builder_active()) {
             if( have_rows('body_open_scripts', 'option') ) {
@@ -96,9 +105,30 @@ class Init {
             }
           }
 
-          // Use this to re-enable language-specific retrieval of ACF fields.
-          remove_filter('acf/settings/current_language', '__return_false');
+          // Re-enable WPML for ACF
+          self::reEnableAcfLanguageAppending();
+
         });
 
   }
+
+  /**
+   * Use this to stop ACF from trying to look for a language-specific version of fields.
+   *
+   * @see http://www.advancedcustomfields.com/resources/acfsettings/
+   */
+  public static function disableAcfLanguageAppending() {
+      add_filter(self::LANGUAGE_SETTING_ACF_FILTER, '__return_false');
+  }
+
+  /**
+   * Use this to re-enable language-specific retrieval of ACF fields.
+   *
+   * @see http://www.advancedcustomfields.com/resources/acfsettings/
+   * @see self::disableAcfLanguageAppending
+   */
+  public static function reEnableAcfLanguageAppending() {
+      remove_filter(self::LANGUAGE_SETTING_ACF_FILTER, '__return_false');
+  }
+
 }
