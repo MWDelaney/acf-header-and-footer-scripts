@@ -40,8 +40,12 @@ class Init {
         // Disable WPML for ACF and get fields from the default language
         self::disableAcfLanguageAppending();
 
-        if(!\FLBuilderModel::is_builder_active()) {
           if( have_rows('header_scripts', 'option') ) {
+            if(class_exists('\FLBuilderModel')) {
+              if(\FLBuilderModel::is_builder_active()) {
+                die();
+              }
+            }
             wp_enqueue_script('header-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/header-scripts.js', NULL, NULL, false);
             while ( have_rows('header_scripts', 'option') ) : the_row();
               if( get_row_layout() == 'snippet' ) {
@@ -52,7 +56,6 @@ class Init {
               }
             endwhile;
           }
-        }
 
         // Re-enable WPML for ACF
         self::reEnableAcfLanguageAppending();
@@ -69,8 +72,12 @@ class Init {
         // Disable WPML for ACF and get fields from the default language
         self::disableAcfLanguageAppending();
 
-        if(!\FLBuilderModel::is_builder_active()) {
-          if( have_rows('footer_scripts', 'option') ) {
+        if(class_exists('\FLBuilderModel')) {
+          if(\FLBuilderModel::is_builder_active()) {
+            die();
+          }
+        }
+        if( have_rows('footer_scripts', 'option') ) {
             wp_enqueue_script('footer-scripts', HFS_PLUGIN_URL . 'app/resources/scripts/footer-scripts.js', NULL, NULL, true);
             while ( have_rows('footer_scripts', 'option') ) : the_row();
               if( get_row_layout() == 'snippet' ) {
@@ -81,10 +88,9 @@ class Init {
               }
             endwhile;
           }
-        }
 
-        // Re-enable WPML for ACF
-        self::reEnableAcfLanguageAppending();
+          // Re-enable WPML for ACF
+          self::reEnableAcfLanguageAppending();
 
       });
 
@@ -97,12 +103,16 @@ class Init {
           // Disable WPML for ACF and get fields from the default language
           self::disableAcfLanguageAppending();
 
-          if(!\FLBuilderModel::is_builder_active()) {
-            if( have_rows('body_open_scripts', 'option') ) {
-              while ( have_rows('body_open_scripts', 'option') ) : the_row();
-                the_sub_field('script');
-              endwhile;
+          if(class_exists('\FLBuilderModel')) {
+            if(\FLBuilderModel::is_builder_active()) {
+              die();
             }
+          }
+
+          if( have_rows('body_open_scripts', 'option') ) {
+            while ( have_rows('body_open_scripts', 'option') ) : the_row();
+              the_sub_field('script');
+            endwhile;
           }
 
           // Re-enable WPML for ACF
